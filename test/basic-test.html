@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="../../web-component-tester/browser.js"></script>
+
+	<!-- Step 1: import the element to test -->
+	<link rel="import" href="../boe-list.html">
+</head>
+<body>
+
+	<!-- You can use the document as a place to set up your fixtures. -->
+	<test-fixture id="boe-list-fixture">
+		<template>
+			<boe-list empty-msg="Custom empty message.">
+				<div id="contentDiv">This is a div.</div>
+			</boe-list>
+		</template>
+	</test-fixture>
+
+	<script>
+		suite('<boe-list>', function () {
+			var myEl;
+
+			setup(function () {
+				myEl = fixture('boe-list-fixture');
+			});
+
+			test('defines the "emptyMsg" property', function () {
+				assert.equal(myEl.emptyMsg, 'Custom empty message.');
+			});
+
+			test('hides #empty when distributed children are present', function () {
+				Polymer.dom.flush();
+				assert.equal(myEl.$.empty.style.display, 'none');
+				assert.equal(myEl.$.content.style.visibility, 'visible');
+				assert.equal(myEl._contentShowing, true);
+			});
+
+			test('shows #empty when no distributed children are present', function () {
+				var distributed = myEl.getContentChildren('#content');
+				distributed.forEach(function(node) {
+					Polymer.dom(myEl).removeChild(node);
+				});
+
+				Polymer.dom.flush();
+				assert.equal(myEl._contentShowing, false);
+				assert.equal(myEl.$.empty.style.display, 'flex');
+				assert.equal(myEl.$.content.style.visibility, 'hidden');
+			});
+		});
+	</script>
+</body>
+</html>

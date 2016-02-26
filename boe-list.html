@@ -1,0 +1,99 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+
+<!--
+A vertical flexbox list that shows a message when empty. Useful for lists with dismissible items.
+
+Example:
+
+    <boe-list empty-msg="There are no more items in the queue.">
+        <boe-list-item>Hey.</boe-list-item>
+    </boe-list>
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property               | Description                                  | Default
+------------------------------|----------------------------------------------|----------
+`--boe-list-border`           | Border style when no items are present.      | `4px dashed #B7B7B7`
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="boe-list">
+	<template>
+		<style>
+			:host {
+				@apply(--layout-vertical);
+				height: 200px;
+			}
+
+			#empty {
+				@apply(--layout-horizontal);
+				@apply(--layout-center);
+				@apply(--layout-center-justified);
+				height: 100%;
+				padding: 24px;
+				text-align: center;
+				border: var(--boe-list-border, 4px dashed #B7B7B7);
+				box-sizing: border-box;
+			}
+		</style>
+
+		<div id="empty">{{emptyMsg}}</div>
+		<content id="content"></content>
+	</template>
+
+	<script>
+		Polymer({
+			is: 'boe-list',
+
+			properties: {
+				/**
+				 * The message to show when the list is empty.
+				 */
+				emptyMsg: {
+					type: String,
+					value: 'There are no more items to display.'
+				}
+			},
+
+			attached: function () {
+				this._observer = Polymer.dom(this.$.content).observeNodes(function () {
+					var distributed = this.getContentChildren('#content');
+					if (distributed.length > 0) {
+						this._showContent();
+					} else {
+						this._hideContent();
+					}
+				}.bind(this));
+			},
+
+			detached: function () {
+				Polymer.dom(this.$.content).unobserveNodes(this._observer);
+			},
+
+			_showContent: function () {
+				if (this._contentShowing) {
+					return;
+				}
+
+				this._contentShowing = true;
+				this.$.content.style.visibility = 'visible';
+				this.$.empty.style.display = 'none';
+			},
+
+			_hideContent: function () {
+				if (!this._contentShowing) {
+					return;
+				}
+
+				this._contentShowing = false;
+				this.$.content.style.visibility = 'hidden';
+				this.$.empty.style.display = 'flex';
+			}
+		});
+	</script>
+</dom-module>

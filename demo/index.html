@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<title>boe-list Demo</title>
+	<script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+	<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+	<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+	<link rel="import" href="../../paper-item/paper-item.html">
+	<link rel="import" href="../boe-list.html">
+	<style is="custom-style" include="demo-pages-shared-styles">
+		.vertical-section-container {
+			max-width: 600px;
+		}
+	</style>
+</head>
+<body unresolved>
+	<div class="vertical-section-container centered">
+		<h3>Default</h3>
+		<demo-snippet>
+			<template>
+				<boe-list></boe-list>
+			</template>
+		</demo-snippet>
+	</div>
+
+	<div class="vertical-section-container centered">
+		<h3>Custom Empty Message</h3>
+		<demo-snippet>
+			<template>
+				<boe-list empty-msg="The queue is empty."></boe-list>
+			</template>
+		</demo-snippet>
+	</div>
+
+	<div class="vertical-section-container centered">
+		<h3>With Items</h3>
+		<demo-snippet>
+			<template>
+				<boe-list>
+					<paper-item>Item 1</paper-item>
+					<paper-item>Item 2</paper-item>
+					<paper-item>Item 3</paper-item>
+					<paper-item>Item 4</paper-item>
+				</boe-list>
+			</template>
+		</demo-snippet>
+	</div>
+</body>
+</html>
