@@ -1,4 +1,4 @@
-[![Build status](https://travis-ci.org/PolymerElements/paper-item.svg?branch=master)](https://travis-ci.org/PolymerElements/paper-item)
+[![Build Status](https://travis-ci.org/SupportClass/boe-list.svg?branch=master)](https://travis-ci.org/SupportClass/boe-list)
 
 _[Demo and API docs](http://supportclass.github.io/boe-list)_
 
