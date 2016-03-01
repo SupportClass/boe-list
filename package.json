@@ -1,0 +1,59 @@
+{
+  "name": "boe-list",
+  "version": "0.1.1",
+  "description": "A vertical flexbox list that shows a message when empty. Useful for lists with dismissible items.",
+  "main": "boe-list.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run static",
+    "static": "npm run static:js && npm run static:polymer",
+    "static:polymer": "polylint -i boe-list.html",
+    "static:js": "eslint boe-list.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lange@github.com/SupportClass/boe-list.git"
+  },
+  "keywords": [
+    "web-component",
+    "polymer",
+    "nodecg-element",
+    "nodecg"
+  ],
+  "author": "Alex Van Camp <email@alexvan.camp> (http://alexvan.camp)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SupportClass/boe-list/issues"
+  },
+  "homepage": "https://github.com/SupportClass/boe-list#readme",
+  "devDependencies": {
+    "eslint": "^2.0.0",
+    "eslint-config-xo": "^0.11.0",
+    "eslint-plugin-html": "^1.4.0",
+    "polylint": "^2.10.0"
+  },
+  "eslintConfig": {
+    "extends": "xo",
+    "plugins": [
+      "html"
+    ],
+    "globals": {
+      "Polymer": true
+    },
+    "rules": {
+      "new-cap": [
+        2,
+        {
+          "capIsNewExceptions": [
+            "Polymer"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "perfect-scrollbar": "^0.6.10"
+  }
+}
