@@ -1,6 +1,6 @@
 {
   "name": "boe-list",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A vertical flexbox list that shows a message when empty. Useful for lists with dismissible items.",
   "main": "boe-list.html",
   "directories": {
