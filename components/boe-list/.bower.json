@@ -1,0 +1,40 @@
+{
+  "name": "boe-list",
+  "authors": [
+    "Alex Van Camp <email@alexvan.camp> (http://alexvan.camp)"
+  ],
+  "description": "A vertical flexbox list that shows a message when empty. Useful for lists with dismissible items.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "nodecg-element",
+    "nodecg"
+  ],
+  "main": "boe-list.html",
+  "license": "MIT",
+  "homepage": "https://github.com/supportclass/boe-list/",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.3.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.1.0",
+    "paper-item": "PolymerElements/paper-item#^1.1.4"
+  },
+  "_release": "6cda0e73a9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "6cda0e73a92f90adfb56f37c8cd18c1266e11748"
+  },
+  "_source": "git@github.com:supportclass/boe-list.git",
+  "_target": "master",
+  "_originalSource": "git@github.com:supportclass/boe-list",
+  "_direct": true
+}
