@@ -96,7 +96,10 @@ Custom property               | Description                                  | D
 
 			ready: function () {
 				this._observer = Polymer.dom(this.$.content).observeNodes(function () {
-					var distributed = this.getContentChildren('#content');
+					var distributed = this.getContentChildren('#content').filter(function (tag) {
+						return tag.tagName !== 'TEMPLATE';
+					});
+
 					if (distributed.length > 0) {
 						this._showContent();
 					} else {
